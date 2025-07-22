@@ -1,0 +1,128 @@
+/* CSS Performance Optimizations */
+
+/* Enable GPU acceleration for transform and opacity */
+.gpu-accelerated {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+/* Optimize scrolling performance */
+.smooth-scroll {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Critical above-the-fold optimizations */
+.critical-render {
+  contain: layout style paint;
+  content-visibility: auto;
+}
+
+/* Lazy loading for non-critical content */
+.lazy-content {
+  content-visibility: auto;
+  contain-intrinsic-size: 200px;
+}
+
+/* Optimize font loading */
+@font-face {
+  font-family: 'Inter';
+  font-display: swap; /* Faster text rendering */
+  src: local('Inter'), local('Inter-Regular');
+}
+
+/* Reduce layout shifts */
+.stable-layout {
+  min-height: 1px; /* Prevent collapse */
+  contain: size layout style;
+}
+
+/* Performance-optimized animations */
+.fade-in {
+  animation: fadeIn 0.2s ease-out forwards;
+  animation-fill-mode: both;
+}
+
+.slide-in {
+  animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Optimize hover states for better performance */
+.hover-optimize {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  will-change: transform, box-shadow;
+}
+
+.hover-optimize:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High contrast support */
+@media (prefers-contrast: high) {
+  .hover-optimize:hover {
+    box-shadow: 0 0 0 2px currentColor;
+    transform: none;
+  }
+}
+
+/* Optimize for different screen sizes */
+@media (max-width: 768px) {
+  .mobile-optimize {
+    transform: none !important; /* Disable transforms on mobile for better performance */
+  }
+}
+
+/* Optimize text rendering */
+body {
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prevent layout shifts with image containers */
+.image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}

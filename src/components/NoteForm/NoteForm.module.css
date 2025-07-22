@@ -1,0 +1,333 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--spacing-4);
+}
+
+.modal {
+  background: var(--bg-primary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border: 1px solid var(--border-color);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-4) var(--spacing-4) 0;
+  margin-bottom: var(--spacing-4);
+}
+
+.title {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.closeButton {
+  padding: var(--spacing-2) !important;
+  min-width: auto !important;
+  width: 32px;
+  height: 32px;
+  border-radius: 50% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error {
+  background: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #fca5a5;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-3);
+  margin: 0 var(--spacing-4) var(--spacing-4);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+}
+
+[data-theme="dark"] .error {
+  background: #450a0a;
+  color: #fca5a5;
+  border-color: #7f1d1d;
+}
+
+.form {
+  padding: 0 var(--spacing-4) var(--spacing-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.label {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  display: block;
+  margin-bottom: var(--spacing-2);
+}
+
+.tagsSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.tagsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.tagsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  align-items: center;
+  padding: var(--spacing-3);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  min-height: 44px;
+  transition: border-color 0.15s ease;
+}
+
+.tagsList:focus-within {
+  border-color: var(--text-primary);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .tagsList:focus-within {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radius-full);
+  border: 1px solid;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.tag:hover {
+  transform: scale(1.05);
+}
+
+.tagRemove {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  margin-left: var(--spacing-1);
+  opacity: 0.7;
+  transition: opacity 0.15s ease;
+}
+
+.tagRemove:hover {
+  opacity: 1;
+}
+
+.tagInput {
+  border: none;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+  padding: var(--spacing-1) 0;
+  outline: none;
+  min-width: 120px;
+  flex: 1;
+}
+
+.tagInput::placeholder {
+  color: var(--text-secondary);
+}
+
+.tagsHelp {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.editorSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.editorContainer {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--bg-secondary);
+  transition: border-color 0.15s ease;
+}
+
+.editorContainer:focus-within {
+  border-color: var(--text-primary);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .editorContainer:focus-within {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+/* Quill editor customization */
+.editorContainer :global(.ql-toolbar) {
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-primary);
+}
+
+.editorContainer :global(.ql-container) {
+  border: none;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: var(--font-size-sm);
+}
+
+.editorContainer :global(.ql-editor) {
+  min-height: 200px;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.editorContainer :global(.ql-editor.ql-blank::before) {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.editorContainer :global(.ql-toolbar .ql-stroke) {
+  stroke: var(--text-secondary);
+}
+
+.editorContainer :global(.ql-toolbar .ql-fill) {
+  fill: var(--text-secondary);
+}
+
+.editorContainer :global(.ql-toolbar .ql-picker-label) {
+  color: var(--text-secondary);
+}
+
+.editorContainer :global(.ql-toolbar button:hover .ql-stroke) {
+  stroke: var(--text-primary);
+}
+
+.editorContainer :global(.ql-toolbar button:hover .ql-fill) {
+  fill: var(--text-primary);
+}
+
+.editorContainer :global(.ql-toolbar button.ql-active .ql-stroke) {
+  stroke: var(--text-primary);
+}
+
+.editorContainer :global(.ql-toolbar button.ql-active .ql-fill) {
+  fill: var(--text-primary);
+}
+
+.editorContainer :global(.ql-picker-options) {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+}
+
+.editorContainer :global(.ql-picker-item) {
+  color: var(--text-primary);
+}
+
+.editorContainer :global(.ql-picker-item:hover) {
+  background: var(--bg-secondary);
+}
+
+.actions {
+  display: flex;
+  gap: var(--spacing-3);
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: var(--spacing-2);
+  padding-top: var(--spacing-4);
+  border-top: 1px solid var(--border-color);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .overlay {
+    padding: var(--spacing-2);
+  }
+  
+  .modal {
+    max-height: 95vh;
+    max-width: 100%;
+  }
+  
+  .header {
+    padding: var(--spacing-3) var(--spacing-3) 0;
+  }
+  
+  .form {
+    padding: 0 var(--spacing-3) var(--spacing-3);
+  }
+  
+  .tagInput {
+    min-width: 80px;
+  }
+  
+  .editorContainer :global(.ql-editor) {
+    min-height: 150px;
+  }
+  
+  .actions {
+    flex-direction: column-reverse;
+    gap: var(--spacing-2);
+  }
+  
+  .actions > * {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: var(--font-size-lg);
+  }
+  
+  .tagsList {
+    padding: var(--spacing-2);
+  }
+  
+  .editorContainer :global(.ql-toolbar) {
+    padding: var(--spacing-2);
+  }
+  
+  .editorContainer :global(.ql-editor) {
+    padding: var(--spacing-3);
+    min-height: 120px;
+  }
+}

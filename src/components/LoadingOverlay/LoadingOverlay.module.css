@@ -1,0 +1,110 @@
+.container {
+  position: relative;
+  min-height: inherit;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.loadingCard {
+  background: var(--bg-primary, #ffffff);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  border: 1px solid var(--border-color, #e9ecef);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  min-width: 200px;
+  max-width: 300px;
+}
+
+.iconContainer {
+  color: var(--primary-color, #007bff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  stroke-width: 2;
+}
+
+.message {
+  color: var(--text-primary, #212529);
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Dark theme support */
+[data-theme="dark"] .overlay {
+  background: rgba(45, 55, 72, 0.8);
+}
+
+[data-theme="dark"] .loadingCard {
+  background: var(--bg-primary-dark, #2d3748);
+  border-color: var(--border-color-dark, #4a5568);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .message {
+  color: var(--text-primary-dark, #f7fafc);
+}
+
+/* Animation for processing state */
+.iconContainer svg {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .overlay {
+    padding: 16px;
+  }
+  
+  .loadingCard {
+    padding: 24px;
+    min-width: 160px;
+  }
+  
+  .icon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .message {
+    font-size: 0.9rem;
+  }
+}

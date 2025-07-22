@@ -1,0 +1,169 @@
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 48px 24px;
+  min-height: 200px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.iconContainer {
+  margin-bottom: 24px;
+  color: var(--text-muted, #9ca3af);
+}
+
+.icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto;
+  opacity: 0.6;
+}
+
+.icon svg {
+  width: 100%;
+  height: 100%;
+  stroke-width: 1.5;
+}
+
+.illustration {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  opacity: 0.8;
+}
+
+.content {
+  margin-bottom: 32px;
+}
+
+.title {
+  color: var(--text-primary, #212529);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+}
+
+.description {
+  color: var(--text-secondary, #6c757d);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 400px;
+}
+
+.actionContainer {
+  margin-top: 8px;
+}
+
+/* Type-specific styling */
+.emptyState.search .icon {
+  color: var(--warning-color, #f59e0b);
+}
+
+.emptyState.error .icon {
+  color: var(--error-color, #ef4444);
+}
+
+.emptyState.offline .icon {
+  color: var(--warning-color, #f59e0b);
+}
+
+/* Dark theme support */
+[data-theme="dark"] .title {
+  color: var(--text-primary-dark, #f7fafc);
+}
+
+[data-theme="dark"] .description {
+  color: var(--text-secondary-dark, #a0aec0);
+}
+
+[data-theme="dark"] .iconContainer {
+  color: var(--text-muted-dark, #718096);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .emptyState {
+    padding: 32px 16px;
+    min-height: 160px;
+  }
+  
+  .icon {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .illustration {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .iconContainer {
+    margin-bottom: 20px;
+  }
+  
+  .content {
+    margin-bottom: 24px;
+  }
+  
+  .title {
+    font-size: 1.125rem;
+  }
+  
+  .description {
+    font-size: 0.9rem;
+  }
+}
+
+/* Hover effects for interactive empty states */
+.emptyState:has(.actionContainer) {
+  transition: all 0.2s ease;
+}
+
+.emptyState:has(.actionContainer):hover .icon {
+  opacity: 0.8;
+  transform: scale(1.05);
+  transition: all 0.2s ease;
+}
+
+.emptyState:has(.actionContainer):hover .title {
+  color: var(--primary-color, #007bff);
+  transition: color 0.2s ease;
+}
+
+/* Animation utilities */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.emptyState {
+  animation: fadeInUp 0.4s ease-out;
+}
+
+/* Special styling for different content types */
+.emptyState.todos .icon {
+  color: var(--success-color, #10b981);
+}
+
+.emptyState.events .icon {
+  color: var(--info-color, #3b82f6);
+}
+
+.emptyState.notes .icon {
+  color: var(--secondary-color, #8b5cf6);
+}
+
+.emptyState.reminders .icon {
+  color: var(--warning-color, #f59e0b);
+}

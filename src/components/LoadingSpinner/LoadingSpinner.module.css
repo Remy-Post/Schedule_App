@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-4);
+  padding: var(--spacing-8);
+}
+
+.spinner {
+  border: 2px solid var(--color-gray-300);
+  border-top: 2px solid var(--text-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.small {
+  width: 16px;
+  height: 16px;
+  border-width: 1px;
+}
+
+.medium {
+  width: 32px;
+  height: 32px;
+}
+
+.large {
+  width: 48px;
+  height: 48px;
+  border-width: 3px;
+}
+
+.text {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .spinner {
+  border-color: var(--color-gray-600);
+  border-top-color: var(--text-primary);
+}

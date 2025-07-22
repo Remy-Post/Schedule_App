@@ -1,0 +1,41 @@
+.virtualList {
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 1px solid var(--border-color, #e1e5e9);
+  border-radius: 8px;
+  background: var(--background-color, #ffffff);
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb-color, #c1c1c1) var(--scrollbar-track-color, transparent);
+}
+
+.virtualList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.virtualList::-webkit-scrollbar-track {
+  background: var(--scrollbar-track-color, transparent);
+}
+
+.virtualList::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb-color, #c1c1c1);
+  border-radius: 3px;
+}
+
+.virtualList::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover-color, #a1a1a1);
+}
+
+.virtualListItem {
+  display: flex;
+  align-items: center;
+  transition: transform 0.1s ease-out;
+}
+
+/* Performance optimizations */
+.virtualList * {
+  will-change: transform;
+}
+
+.virtualList {
+  contain: layout style paint;
+}

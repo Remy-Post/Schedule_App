@@ -1,0 +1,305 @@
+.todoList {
+  max-width: 100%;
+  padding: 0;
+}
+
+.loadingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-6);
+  padding: var(--spacing-6);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-color);
+}
+
+.titleSection h1 {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-3) 0;
+}
+
+.stats {
+  display: flex;
+  gap: var(--spacing-4);
+  flex-wrap: wrap;
+}
+
+.stat {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  padding: var(--spacing-2) var(--spacing-3);
+  background: var(--bg-primary);
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+}
+
+.stat.overdue {
+  background: #fee2e2;
+  color: #dc2626;
+  border-color: #fca5a5;
+}
+
+[data-theme="dark"] .stat.overdue {
+  background: #450a0a;
+  color: #fca5a5;
+  border-color: #7f1d1d;
+}
+
+.actions {
+  display: flex;
+  gap: var(--spacing-3);
+}
+
+.addButton {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.filters {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  padding: var(--spacing-4);
+  margin-bottom: var(--spacing-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.searchSection {
+  flex: 1;
+}
+
+.searchInput {
+  width: 100%;
+}
+
+.filterControls {
+  display: flex;
+  gap: var(--spacing-3);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filterSelect {
+  padding: var(--spacing-2) var(--spacing-3);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.filterSelect:focus {
+  outline: none;
+  border-color: var(--text-primary);
+  box-shadow: 0 0 0 1px var(--text-primary);
+}
+
+.sortButton,
+.clearButton {
+  padding: var(--spacing-2);
+  font-size: var(--font-size-sm);
+}
+
+.viewOptions {
+  display: flex;
+  gap: var(--spacing-4);
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--text-primary);
+}
+
+.bulkActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-4);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  margin-bottom: var(--spacing-4);
+}
+
+.bulkInfo {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.bulkButtons {
+  display: flex;
+  gap: var(--spacing-2);
+}
+
+.listControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-4);
+}
+
+.selectAllButton {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.todoItems {
+  min-height: 200px;
+  transition: background-color 0.15s ease;
+}
+
+.todoItems.dragging {
+  background-color: var(--color-gray-100);
+}
+
+[data-theme="dark"] .todoItems.dragging {
+  background-color: var(--color-gray-800);
+}
+
+.todoItemWrapper {
+  margin-bottom: var(--spacing-3);
+}
+
+.todoItemWrapper.dragging {
+  z-index: 1000;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-4);
+  padding: var(--spacing-12);
+  text-align: center;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 2px dashed var(--border-color);
+}
+
+.empty p {
+  margin: 0;
+  font-size: var(--font-size-lg);
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .filterSelect {
+  background-color: var(--bg-secondary);
+  border-color: var(--color-gray-600);
+}
+
+[data-theme="dark"] .filterSelect:focus {
+  border-color: var(--text-primary);
+  box-shadow: 0 0 0 1px var(--text-primary);
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: var(--spacing-4);
+    align-items: stretch;
+  }
+
+  .titleSection h1 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .stats {
+    justify-content: space-between;
+    gap: var(--spacing-2);
+  }
+
+  .stat {
+    flex: 1;
+    text-align: center;
+    font-size: var(--font-size-xs);
+  }
+
+  .actions {
+    align-self: stretch;
+  }
+
+  .addButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .filterControls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filterSelect {
+    width: 100%;
+  }
+
+  .bulkActions {
+    flex-direction: column;
+    gap: var(--spacing-3);
+    align-items: stretch;
+  }
+
+  .bulkButtons {
+    justify-content: stretch;
+  }
+
+  .bulkButtons button {
+    flex: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .todoList {
+    padding: 0;
+  }
+
+  .header {
+    padding: var(--spacing-4);
+    margin-bottom: var(--spacing-4);
+  }
+
+  .filters {
+    padding: var(--spacing-3);
+    margin-bottom: var(--spacing-4);
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .empty {
+    padding: var(--spacing-8);
+  }
+
+  .empty p {
+    font-size: var(--font-size-base);
+  }
+}

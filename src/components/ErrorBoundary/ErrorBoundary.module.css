@@ -1,0 +1,133 @@
+.errorBoundary {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: var(--bg-primary, #ffffff);
+}
+
+.errorContainer {
+  max-width: 600px;
+  text-align: center;
+  padding: 40px;
+  border-radius: 12px;
+  background: var(--bg-secondary, #f8f9fa);
+  border: 1px solid var(--border-color, #e9ecef);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.errorIcon {
+  color: var(--error-color, #dc3545);
+  margin-bottom: 24px;
+}
+
+.errorIcon svg {
+  width: 48px;
+  height: 48px;
+}
+
+.errorTitle {
+  color: var(--text-primary, #212529);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.errorMessage {
+  color: var(--text-secondary, #6c757d);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 32px;
+}
+
+.errorActions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.retryButton,
+.reloadButton {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.retryButton {
+  background: var(--primary-color, #007bff);
+  color: white;
+}
+
+.retryButton:hover {
+  background: var(--primary-hover, #0056b3);
+  transform: translateY(-1px);
+}
+
+.reloadButton {
+  background: var(--bg-tertiary, #e9ecef);
+  color: var(--text-primary, #212529);
+  border: 1px solid var(--border-color, #ced4da);
+}
+
+.reloadButton:hover {
+  background: var(--bg-hover, #dee2e6);
+  transform: translateY(-1px);
+}
+
+.errorDetails {
+  margin-top: 32px;
+  text-align: left;
+  background: var(--bg-code, #f8f9fa);
+  border: 1px solid var(--border-color, #e9ecef);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.errorDetails summary {
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--text-primary, #212529);
+  margin-bottom: 12px;
+}
+
+.errorStack {
+  background: var(--bg-code-dark, #2d3748);
+  color: var(--text-code, #e2e8f0);
+  padding: 16px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  margin-top: 12px;
+}
+
+/* Dark theme support */
+[data-theme="dark"] .errorContainer {
+  background: var(--bg-secondary-dark, #2d3748);
+  border-color: var(--border-color-dark, #4a5568);
+}
+
+[data-theme="dark"] .errorTitle {
+  color: var(--text-primary-dark, #f7fafc);
+}
+
+[data-theme="dark"] .errorMessage {
+  color: var(--text-secondary-dark, #a0aec0);
+}
+
+[data-theme="dark"] .reloadButton {
+  background: var(--bg-tertiary-dark, #4a5568);
+  color: var(--text-primary-dark, #f7fafc);
+  border-color: var(--border-color-dark, #718096);
+}
+
+[data-theme="dark"] .reloadButton:hover {
+  background: var(--bg-hover-dark, #718096);
+}
